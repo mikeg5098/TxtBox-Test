@@ -34,8 +34,11 @@ public class file {
 	{
 		try(PrintWriter output = new PrintWriter(new FileWriter("/Users/user/Desktop/dates.rtf",true))) 
 		{
-		    output.printf(day);
-		    output.close();
+		    //output.printf(day);
+		    //output.close();
+		    BufferedWriter bw = new BufferedWriter(output);
+		    bw.write(day);
+		    bw.close();
 		} 
 		catch (Exception e) {}
 		
