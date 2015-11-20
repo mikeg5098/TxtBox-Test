@@ -1,5 +1,6 @@
 package program;
 
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -12,7 +13,7 @@ public class file {
 	
 	public void read() {
 		
-		File file = new File("/Users/user/Desktop/dates.rtf");
+		File file = new File("/Users/user/Desktop/dates.txt");
 		
 		try
 		{
@@ -32,7 +33,7 @@ public class file {
 	
 	public static void write(String day)
 	{
-		try(PrintWriter output = new PrintWriter(new FileWriter("/Users/user/Desktop/dates.rtf",true))) 
+		try(PrintWriter output = new PrintWriter(new FileWriter("/Users/user/Desktop/dates.txt",true))) 
 		{
 		    //output.printf(day);
 		    //output.close();

@@ -36,7 +36,7 @@ public class Day {
 	
 	public static void saveDay()
 	{
-		String save = name +'\n'+place+'\n'+month+'\n'+ day +'\n'+year+'\n'+ description+'\n'+-1; 
+		String save = name +'\n'+place+'\n'+month+'\n'+ day +'\n'+year+'\n'+ description+'\n'+-1+'\n'; 
 		file.write(save);
 	}
 	
