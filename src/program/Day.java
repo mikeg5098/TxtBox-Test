@@ -9,6 +9,9 @@ public class Day {
 	static String year;
 	static String description;
 	
+	public static String getName(){return name;}
+	
+	
 	public static void setName(String temp)
 	{
 		name = temp;

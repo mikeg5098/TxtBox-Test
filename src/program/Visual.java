@@ -61,6 +61,9 @@ public class Visual extends JFrame {
 				}
 			}
 		});
+		
+		file.read();
+		
 	}
 
 
