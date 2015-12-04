@@ -65,6 +65,7 @@ public class file {
 	                }
 	            }
 	        }
+	        reader.close();
 	    } catch (FileNotFoundException e) {
 	        // File not found
 	    } catch (IOException e) {
@@ -84,6 +85,31 @@ public class file {
 		arr = new DayOBJ[size];
 		
 		int iterator = 0;
+		
+		try {
+	        BufferedReader reader = new BufferedReader(new FileReader(file));
+	        String line = null;
+	        while ((line = reader.readLine()) !=null) {
+	        	String tName = line; 
+				String tPlace = reader.readLine(); 
+				String tMonth = reader.readLine(); 
+				String tDay = reader.readLine(); 
+				String tYear = reader.readLine(); 
+				
+				System.out.println(tName+'\n');
+	        	
+	        	
+	        }
+	        reader.close();
+	    } catch (FileNotFoundException e) {
+	        // File not found
+	    } catch (IOException e) {
+	        // Couldn't read the file
+	    }
+		
+		
+		/*
+
 		try
 		{
 			Scanner sc = new Scanner(file);
@@ -124,37 +150,8 @@ public class file {
 			
 			
 			sc.close();
+						
 			
-			//String temp = arr[1].getName();
-			//String temp4 = arr[4].getName();
-			
-			//System.out.println(temp);
-			
-			
-
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			/*
-			while(!stack.empty())
-			{
-				for(int i = 0; i<size;i++)
-				{
-					arr[i] = stack.pop();
-				}
-			}
-			
-			for(int i = 0; i<(size-1);i++)
-			{
-				System.out.println(arr[i].getName());
-			}
-			*/
 				
 		}
 		 catch(FileNotFoundException e){
@@ -162,6 +159,8 @@ public class file {
 	    	   e.printStackTrace();
 	    }
 		
+		 
+		*/
 		
 	}
 	
