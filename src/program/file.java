@@ -9,7 +9,6 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.Scanner;
-import java.util.Stack;
 
 
 
@@ -42,6 +41,10 @@ public class file {
 		{
 			return name;
 		}
+		public String getPlace()
+		{
+			return place;
+		}
 		
 		
 		
@@ -54,23 +57,29 @@ public class file {
 	{
 		int count = 0;
 		
-		File file = new File("/Users/user/Desktop/dates.txt");
+		File file = new File("/Users/Owner/Desktop/TxtBox Test/dates");
 		try {
 	        BufferedReader reader = new BufferedReader(new FileReader(file));
 	        String line = null;
-	        while ((line = reader.readLine()) !=null) {
-	            for(int i=0; i<line.length();i++){
-	                if(line.charAt(i) == '-'){
+	        while ((line = reader.readLine()) !=null) 
+	        {
+	            for(int i=0; i<line.length();i++)
+	            {
+	                if(line.charAt(i) == '-')
+	                {
 	                    count++;
 	                }
 	            }
 	        }
 	        reader.close();
-	    } catch (FileNotFoundException e) {
+	    } catch (FileNotFoundException e) 
+		{
 	        // File not found
-	    } catch (IOException e) {
+	    } catch (IOException e) 
+		{
 	        // Couldn't read the file
 	    }
+
 		return count;
 		
 	}
@@ -80,43 +89,18 @@ public class file {
 		
 		int size = file.counter();
 		
-		File file = new File("/Users/user/Desktop/dates.txt");
+		File file = new File("/Users/Owner/Desktop/TxtBox Test/dates");
 		
 		arr = new DayOBJ[size];
 		
 		int iterator = 0;
-		
-		try {
-	        BufferedReader reader = new BufferedReader(new FileReader(file));
-	        String line = null;
-	        while ((line = reader.readLine()) !=null) {
-	        	String tName = line; 
-				String tPlace = reader.readLine(); 
-				String tMonth = reader.readLine(); 
-				String tDay = reader.readLine(); 
-				String tYear = reader.readLine(); 
-				
-				System.out.println(tName+'\n');
-	        	
-	        	
-	        }
-	        reader.close();
-	    } catch (FileNotFoundException e) {
-	        // File not found
-	    } catch (IOException e) {
-	        // Couldn't read the file
-	    }
-		
-		
-		/*
-
 		try
 		{
 			Scanner sc = new Scanner(file);
 
 			
 			
-	        while (sc.hasNext())
+	        while (sc.hasNextLine())
 			{
 					String tName = sc.nextLine(); 
 					String tPlace = sc.nextLine(); 
@@ -125,33 +109,72 @@ public class file {
 					String tYear = sc.nextLine(); 
 					
 					String d = "";
-					String line = sc.nextLine();
+					Boolean check = true;
 					
-					while(line != "-1") {
+					String line = sc.nextLine();
+					//issue here
+					do
+					{
 						d += line;
 						
-						if(sc.hasNextLine()) {
+						if(sc.hasNextLine() && line != "-1" ) 
+						{
 							line = sc.nextLine();
 						}
-						else {
+						else
+						{
 							break;
 						}
-					}
+						if(sc.nextLine() == "-1")
+						{
+							check = false;
+						}
+					}while(line != "-1" && check == true);
+					//issue between here
 					
-					//arr[iterator] = new DayOBJ(tName, tPlace, tMonth, tDay, tYear, d);
+					arr[iterator] = new DayOBJ(tName, tPlace, tMonth, tDay, tYear, d);
 					
 					
-					//iterator++;
+					iterator++;
 					//System.out.print(iterator);
-					System.out.println(tName+'\n');
-					
-					
+					System.out.println(tName + '\n');
+					System.out.println(tPlace + '\n');
+					System.out.println(d + '\n');
 			}
-			
+	        System.out.print(arr[0].getName());
 			
 			sc.close();
-						
 			
+			//String temp = arr[1].getName();
+			//String temp4 = arr[4].getName();
+			
+			//System.out.println(temp);
+			
+			
+
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			/*
+			while(!stack.empty())
+			{
+				for(int i = 0; i<size;i++)
+				{
+					arr[i] = stack.pop();
+				}
+			}
+			
+			for(int i = 0; i<(size-1);i++)
+			{
+				System.out.println(arr[i].getName());
+			}
+			*/
 				
 		}
 		 catch(FileNotFoundException e){
@@ -159,14 +182,12 @@ public class file {
 	    	   e.printStackTrace();
 	    }
 		
-		 
-		*/
 		
 	}
 	
 	public static void write(String day)
 	{
-		try(PrintWriter output = new PrintWriter(new FileWriter("/Users/user/Desktop/dates.txt",true))) 
+		try(PrintWriter output = new PrintWriter(new FileWriter("/Users/Owner/Desktop/TxtBox Test/dates",true))) 
 		{
 		    //output.printf(day);
 		    //output.close();
